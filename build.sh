@@ -26,11 +26,12 @@ case "$BUILD_TYPE" in
         ;;
     *) echo "BUILD_TYPE must be debug or release." >&2; exit 1 ;;
 esac
-rm -rf build/classes build/dex build/generated
-mkdir -p build/classes build/dex
+rm -rf build/classes build/dex build/generated build/assets
+mkdir -p build/classes build/dex build/assets
+cp LICENSE build/assets/LICENSE
 "$ANDROID_BUILD_TOOLS/aapt2" compile --dir res -o build/resources.zip
 "$ANDROID_BUILD_TOOLS/aapt2" link -o build/unsigned.apk -I "$ANDROID_JAR" \
-    --manifest AndroidManifest.xml --java build/generated \
+    --manifest AndroidManifest.xml --java build/generated -A build/assets \
     --version-code "$VERSION_CODE" --version-name "$VERSION" \
     "${link_options[@]}" build/resources.zip
 javac --release 17 -classpath "$ANDROID_JAR" -d build/classes \

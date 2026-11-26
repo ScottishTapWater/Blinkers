@@ -10,10 +10,12 @@ code="$(bash scripts/version-code.sh "$version")"
 [[ "$metadata" == *"versionCode='$code'"* ]]
 [[ "$metadata" == *"versionName='$version'"* ]]
 [[ "$metadata" == *"application-label:'Blinkers'"* ]]
+[[ "$metadata" == *"launchable-activity: name='io.github.scottishtapwater.blinkers.MainActivity'"* ]]
 [[ "$metadata" == *"sdkVersion:'36'"* || "$metadata" == *"minSdkVersion:'36'"* ]]
 [[ "$metadata" == *"targetSdkVersion:'36'"* ]]
 [[ "$metadata" == *"application-icon-"* ]]
 [[ "$metadata" != *"uses-permission:"* ]]
+unzip -p build/blinkers.apk assets/LICENSE | cmp -s LICENSE -
 if [[ "$build_type" == release ]]; then
     [[ "$metadata" != *"application-debuggable"* ]]
 else

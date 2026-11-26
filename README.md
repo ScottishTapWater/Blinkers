@@ -5,10 +5,11 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/ScottishTapWater/Blinkers/ci.yml?branch=main&label=CI&style=for-the-badge)](https://github.com/ScottishTapWater/Blinkers/actions/workflows/ci.yml)
 [![CD](https://img.shields.io/github/actions/workflow/status/ScottishTapWater/Blinkers/cd.yml?branch=main&label=CD&style=for-the-badge)](https://github.com/ScottishTapWater/Blinkers/actions/workflows/cd.yml)
 [![Release](https://img.shields.io/github/v/release/ScottishTapWater/Blinkers?style=for-the-badge)](https://github.com/ScottishTapWater/Blinkers/releases/latest)
+[![Licence](https://img.shields.io/github/license/ScottishTapWater/Blinkers?style=for-the-badge)](LICENSE)
 
 Blinkers activates the Galaxy S26 Ultra's hardware Privacy Display when you open the notification drawer or Quick Settings. Closing the panel removes Blinkers' privacy region.
 
-Samsung supports automatic privacy for notification pop-ups, but does not offer the same setting for the expanded drawer. Blinkers adds that behaviour without root or Shizuku.
+Samsung supports [automatic privacy for notification pop-ups](https://www.samsung.com/us/support/answer/ANS10010349/), but does not offer the same setting for the expanded drawer. Blinkers adds that behaviour without root or Shizuku.
 
 ## Install
 
@@ -19,6 +20,8 @@ Samsung supports automatic privacy for notification pop-ups, but does not offer 
 5. Open the notification drawer and check the effect from an angle.
 
 Select **Disable protection** to turn Blinkers off. You can also disable its accessibility service in Android settings.
+
+For updates, install the new release APK over the existing Blinkers app. Keep the app installed to preserve its settings. Official releases share the same signing key and use package ID `io.github.scottishtapwater.blinkers`.
 
 The earlier test app uses a different package ID. Disable its accessibility service when you switch to Blinkers.
 
@@ -95,3 +98,7 @@ apksigner verify --print-certs Blinkers-VERSION.apk
 ```
 
 Compare the certificate SHA-256 digest with `signing-certificate.sha256` in this repository.
+
+## Licence
+
+Blinkers is licensed under the [MIT licence](LICENSE). Release APKs include the licence in `assets/LICENSE`.
