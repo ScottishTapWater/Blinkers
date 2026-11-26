@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Blinkers</string>
+    <string name="instructions">Enable the accessibility service, then turn on protection below.\n\nYour screen is protected from side viewing angles while the notification drawer or Quick Settings is open. Closing the panel removes protection.\n\nSupports the Galaxy S26 Ultra. Lock-screen activation is not included. Protection during the first frames of the opening swipe remains unverified.</string>
+    <string name="service_description">Protects the screen while the unlocked notification drawer is open. Uses window metadata and System UI view identifiers to detect the drawer. Does not inspect notification text.</string>
+    <string name="accessibility_settings">Accessibility settings</string>
+    <string name="enable_protection">Enable protection</string>
+    <string name="disable_protection">Disable protection</string>
+    <string name="status_service_disabled">Enable Blinkers in Accessibility settings first.</string>
+    <string name="status_disabled">Protection disabled.</string>
+    <string name="status_waiting">Protection enabled. Waiting for the drawer.</string>
+    <string name="status_activating">Drawer open. Activating privacy.</string>
+    <string name="status_active">Drawer open. Privacy active.</string>
+    <string name="status_failed">Protection disabled after an error: %1$s</string>
+</resources>
