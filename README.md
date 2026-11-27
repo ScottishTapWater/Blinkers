@@ -33,6 +33,23 @@ Blinkers protects the whole screen while the unlocked notification drawer or Qui
 
 The implementation uses undocumented Samsung framework methods. Firmware updates may change those methods or the System UI view identifiers used to detect the drawer. Blinkers is independent of Samsung.
 
+### Use Blinkers with banking apps
+
+Some banking apps can block access when Blinkers' accessibility service is enabled, reporting that Blinkers came from an unofficial app store. Reinstalling Blinkers through ADB with Google Play as the recorded installer restored access to one affected banking app on the tested Galaxy S26 Ultra with Blinkers 0.2.0.
+
+With ADB connected, install the same signed release APK over the existing app:
+
+```sh
+adb install -r -i com.android.vending Blinkers-VERSION.apk
+adb shell pm list packages -i io.github.scottishtapwater.blinkers
+```
+
+Replace `Blinkers-VERSION.apk` with the path to your release APK. The second command must show `installer=com.android.vending`. The `-r` option preserves app data. Enable Blinkers' accessibility service, fully close the banking app, and reopen it to check access.
+
+This changes Android's recorded installer. ADB remains recorded as the initiating package, and the app does not acquire a Google Play licence. Other app versions or checks may behave differently. A later update may replace the installer metadata, so check it again if the block returns.
+
+Changing the installer afterwards with `adb shell pm set-installer` failed on the tested phone because Android required the caller to share Google Play's signing certificate.
+
 ## Accessibility and privacy
 
 Blinkers uses an accessibility service to identify the drawer through window metadata and the root view's package and resource ID. Android requires window-content access for these APIs, but Blinkers does not read notification text or traverse notification content.
